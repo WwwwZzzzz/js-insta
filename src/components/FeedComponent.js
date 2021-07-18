@@ -10,10 +10,8 @@ import { Redirect } from "react-router-dom";
 function LikeButton({ likes }) {
   const classes = useFeedPostStyles();
   const [liked, setLiked] = useState(false);
-  //capitalized Icon because it's a component
   const Icon = liked ? UnlikeIcon : LikeIcon;
 
-  // For animation
   const className = liked ? classes.liked : classes.like;
   const onClick = liked ? handleUnlike : handleLike;
 

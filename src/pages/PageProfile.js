@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { useProfilePageStyles } from "../styles";
 import Layout from "../components/shared/Layout";
 import { defaultCurrentUser } from "../data";
@@ -7,10 +8,15 @@ import ProfilePicture from "../components/shared/ProfilePicture";
 import { Link } from "react-router-dom";
 import { GearIcon } from "../icons";
 import ProfileTabs from "../components/profile/ProfileTabs";
+import { actionGetOwnerPosts } from "../actions/ActionProfile";
 
+export const PageProfile = ({ match: { params: { _id }, }, getData,}) => {
 
+  useEffect(() => {
+    getData(_id);
+  }, [_id]);
+  console.log(`id must be here ${_id}`);
 
-export const PageProfile = () => {
   const isOwner = false;
   const classes = useProfilePageStyles();
   const [showOptionsMenu, setShowOptionsMenu] = useState(false);
@@ -264,3 +270,6 @@ function OptionsItem({ text, onClick }) {
     </>
   );
 }
+
+// export const CProfilePosts = connect((state) => ({status: state.promise.postsByOwnerId?.status, getData: state.promise?.postsByOwnerId?.payload}) )(PageProfile);
+export const CProfilePosts = connect(null, { getData: actionGetOwnerPosts })(PageProfile)

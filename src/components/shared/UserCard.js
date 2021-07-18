@@ -15,14 +15,14 @@ export const UserCardFeed = ({ user = defaultUser, avatarSize = 44 }) => {
 
   return (
     <div className={classes.wrapper}>
-      <Link to={`/user:${user._id}`}>
+      <Link to={`/profile/${user._id}`}>
         <Avatar
           src={profile_image}
           alt="User avatar"
           className={classes.avatar} />
       </Link>
       <div className={classes.nameWrapper}>
-        <Link to={`/user:${user._id}`}>
+        <Link to={`/profile/${user._id}`}>
           <Typography variant="subtitle2" className={classes.typography}>
             {user.login}
           </Typography>
@@ -42,7 +42,7 @@ function UserCard({ user = defaultUser, avatarSize = 44 }) {
   const classes = useUserCardStyles({ avatarSize });
 
   const { name, profile_image, username } = user;
-
+  console.log(defaultUser)
   return (
     <div className={classes.wrapper}>
       <Link to={`/${username}`}>
@@ -69,5 +69,7 @@ function UserCard({ user = defaultUser, avatarSize = 44 }) {
     </div>
   );
 }
+
+
 
 export default UserCard;

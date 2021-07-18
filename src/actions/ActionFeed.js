@@ -16,7 +16,10 @@ const actionGQLFollowingById = (_id) =>
     query UserFindOne($query:String) {
       UserFindOne(query:$query) {
        following {
-         _id
+         _id,
+         avatar {url},
+         nick,
+         login
        }
       }
     }    

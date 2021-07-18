@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { useProfileTabsStyles } from "../../styles";
 import { Hidden, Divider, Tabs, Tab, Typography } from "@material-ui/core";
 import { GridIcon, SaveIcon } from "../../icons";
 import GridPost from "../shared/GridPost";
 
-function ProfileTabs({ isOwner, user }) {
+function ProfileTabs({ isOwner, user, _id }) {
   const classes = useProfileTabsStyles();
   const [value, setValue] = useState(0);
 
@@ -76,5 +77,9 @@ function SavedPosts({ isOwner }) {
     </section>
   );
 }
+
+// export default connect((state) => ({
+//   ...(state.postsByOwnerId?.payload || {}),
+// }))(ProfileTabs);
 
 export default ProfileTabs;

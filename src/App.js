@@ -16,6 +16,7 @@ import { PageProfile } from "./pages/PageProfile";
 import { PageFeed } from "./pages/PageFeed";
 import { CPost } from "./pages/PagePost";
 import { CAllPost } from "./actions/ActionExplore";
+import { CProfilePosts } from "./pages/PageProfile";
 import EditProfilePage from "./pages/edit-profile";
 
 const App = () => (
@@ -31,8 +32,10 @@ const App = () => (
         <Route path="/explore" component={CAllPost} />
         <Route path="/test/:_id" component={CPost} />
         {/* <Route path='/posttest' component={PostPage} /> */}
-        <Route path="/me" exact={true} component={PageMyProfile} />
-        <Route path="/profile" exact={true} component={PageProfile} />
+        <Route path="/me" component={PageMyProfile} />
+        <Route path="/profile" component={PageProfile} />
+        {/* <Route path="/profile/:id" component={PageProfile} /> */}
+        <Route path="/profile/:_id" component={CProfilePosts} />
         <Route path="/accounts/edit" component={EditProfilePage} />
         <Route path='*' exact={true} component={PageNotFound} />
       </Switch>
