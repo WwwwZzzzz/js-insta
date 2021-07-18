@@ -1565,6 +1565,7 @@ export const useProfileTabsStyles = makeStyles((theme) => {
     article: {
       display: "grid",
       gridTemplateColumns: "minmax(auto, 935px)",
+      marginTop: "30px",
     },
     postContainer: {
       [theme.breakpoints.down("sm")]: {
@@ -1582,6 +1583,8 @@ export const useGridPostStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     userSelect: "none",
+    height: "100%",
+    objectFit: "cover",
   },
   gridPostContainer: {
     position: "relative",
@@ -1589,6 +1592,8 @@ export const useGridPostStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    maxHeight: "300px",
+    minHeight: "300px",
   },
   gridPostOverlay: {
     [theme.breakpoints.down("xs")]: {

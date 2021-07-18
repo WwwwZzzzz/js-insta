@@ -29,8 +29,8 @@ export const PageMyProfile = () => {
     >
       <div className={classes.container}>
         <Hidden xsDown>
-          <Card style={{display: "flex", alignItems: "center", padding: "0 50px"}}>
-            <ProfilePicture isOwner={isOwner}/>
+          <Card style={{ display: "flex", alignItems: "center", padding: "0 50px", boxShadow: "0px -2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)" }}>
+            <ProfilePicture isOwner={isOwner} />
             <CardContent className={classes.cardContentLarge}>
               <ProfileNameSection
                 handleOptionsMenuClick={handleOptionsMenuClick}
@@ -104,8 +104,8 @@ function ProfileNameSection({ user, isOwner, handleOptionsMenuClick }) {
           <Typography className={classes.username}>{user.username}</Typography>
           {isOwner ? (
             <>
-              <Link to="/accounts/edit" style={{ textDecoration: 'none'}}>
-                <Button variant="outlined" style={{ textTransform: 'capitalize'}}>Edit profile</Button>
+              <Link to="/accounts/edit" style={{ textDecoration: 'none' }}>
+                <Button variant="outlined" style={{ textTransform: 'capitalize' }}>Edit profile</Button>
               </Link>
               <div
                 onClick={handleOptionsMenuClick}

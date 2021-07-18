@@ -41,19 +41,16 @@ const actionGQLPostsByOwnerId = (ids) =>
       }
     }   
 `,
-            { q: JSON.stringify([{ ___owner: { $in: ["5ef90d3ee6f4c17f48f6c8a3"] } }]) },
+            { q: JSON.stringify([{ ___owner: { $in: ids } }]) },
         ),
     );
 
 export const actionGetOwnerPosts = (_id) => async (dispatch, getState) => {
-    // console.log(getState())
-    await dispatch(actionGQLPostsByOwnerId(_id));
-    // let _id = "5ef90d3ee6f4c17f48f6c8a3";
-    // let ids = [_id];
-    console.log(getState().promise?.postsByOwnerId.payload);
-    return await getState().promise?.postsByOwnerId.payload;
-    // return await dispatch(actionGQLPostsByOwnerId(ids));
+
+    let ids = [_id];
+
+    return await dispatch(actionGQLPostsByOwnerId(ids));
 };
 
-store.dispatch(actionGetOwnerPosts());
-// console.log(store.getState())
+// store.dispatch(actionGetOwnerPosts());
+

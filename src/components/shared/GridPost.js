@@ -3,33 +3,26 @@ import React from "react";
 import { useGridPostStyles } from "../../styles";
 import { useHistory } from "react-router-dom";
 
-function GridPost({ post }) {
+function GridPost({ _id, images }) {
   const history = useHistory();
   const classes = useGridPostStyles();
-  const { media, likes, comments, id } = post;
-
-  function handleOpenPostModal() {
-    history.push({
-      pathname: `/p/${id}`,
-      state: {
-        modal: true,
-      },
-    });
+  // const { media, likes, comments, id } = post;
+  if (images === null) {
+    images = [{}];
   }
-
   return (
-    <div onClick={handleOpenPostModal} className={classes.gridPostContainer}>
+    <div className={classes.gridPostContainer}>
       <div className={classes.gridPostOverlay}>
         <div className={classes.gridPostInfo}>
           <span className={classes.likes} />
-          <Typography>{likes}</Typography>
+          <Typography>132</Typography>
         </div>
         <div className={classes.gridPostInfo}>
           <span className={classes.comments} />
-          <Typography>{comments.length}</Typography>
+          <Typography>131</Typography>
         </div>
       </div>
-      <img src={media} alt="Post cover" className={classes.image} />
+      {images.map(image =>  <img src={'/' + image.url}  className={classes.image} />)}
     </div>
   );
 }

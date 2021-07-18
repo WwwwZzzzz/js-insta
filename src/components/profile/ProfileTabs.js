@@ -78,8 +78,4 @@ function SavedPosts({ isOwner }) {
   );
 }
 
-// export default connect((state) => ({
-//   ...(state.postsByOwnerId?.payload || {}),
-// }))(ProfileTabs);
-
 export default ProfileTabs;

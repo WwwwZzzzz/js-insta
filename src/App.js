@@ -12,7 +12,7 @@ import {PageNotFound} from "./pages/PageNotFound";
 import Post from './components/PostComponent';
 import FeedPage from "./pages/feed";
 import { PageMyProfile } from "./pages/PageMyProfile";
-import { PageProfile } from "./pages/PageProfile";
+// import { PageProfile } from "./pages/PageProfile";
 import { PageFeed } from "./pages/PageFeed";
 import { CPost } from "./pages/PagePost";
 import { CAllPost } from "./actions/ActionExplore";
@@ -33,7 +33,7 @@ const App = () => (
         <Route path="/test/:_id" component={CPost} />
         {/* <Route path='/posttest' component={PostPage} /> */}
         <Route path="/me" component={PageMyProfile} />
-        <Route path="/profile" component={PageProfile} />
+        {/* <Route path="/profile" component={PageProfile} /> */}
         {/* <Route path="/profile/:id" component={PageProfile} /> */}
         <Route path="/profile/:_id" component={CProfilePosts} />
         <Route path="/accounts/edit" component={EditProfilePage} />
