@@ -38,5 +38,4 @@ export const actionSearchUser = (_id = "", str = "") => async (dispatch) => {
             )
         )
     );
-    // console.log("actionSearchChat - searchData:", searchData);
   };

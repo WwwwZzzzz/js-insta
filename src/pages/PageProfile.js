@@ -41,11 +41,7 @@ const PageProfile = ({ match: { params: { _id }, }, getData,
           <Card style={{ display: "flex", alignItems: "center", padding: "0 50px", boxShadow: "0px -2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)" }}>
             <ProfilePicture isOwner={isOwner} />
             <CardContent className={classes.cardContentLarge}>
-              <ProfileNameSection
-                handleOptionsMenuClick={handleOptionsMenuClick}
-                user={defaultCurrentUser}
-                isOwner={isOwner}
-              />
+              <ProfileNameSection handleOptionsMenuClick={handleOptionsMenuClick} user={defaultCurrentUser} isOwner={isOwner} />
               <PostCountSection user={defaultCurrentUser} />
               <NameBioSection user={defaultCurrentUser} />
             </CardContent>
@@ -56,11 +52,7 @@ const PageProfile = ({ match: { params: { _id }, }, getData,
             <CardContent>
               <section className={classes.sectionSmall}>
                 <ProfilePicture size={77} isOwner={isOwner} />
-                <ProfileNameSection
-                  handleOptionsMenuClick={handleOptionsMenuClick}
-                  user={defaultCurrentUser}
-                  isOwner={isOwner}
-                />
+                <ProfileNameSection handleOptionsMenuClick={handleOptionsMenuClick} user={defaultCurrentUser} isOwner={isOwner} />
               </section>
               <NameBioSection user={defaultCurrentUser} />
             </CardContent>
@@ -74,42 +66,6 @@ const PageProfile = ({ match: { params: { _id }, }, getData,
     </Layout>
   );
 }
-
-const TestPost = ({ _id }) => {
-  return (
-    <>
-      <div>{_id}</div>
-    </>
-  );
-}
-
-const TestPosts = ({ status, posts }) => {
-  if (status === "REJECTED") {
-    return (
-      <p>
-        Rejected
-      </p>
-    )
-  }
-  if (status === 'PENDING') {
-    return (
-      <p></p>
-    )
-  }
-  if (status === 'RESOLVED') {
-    return (
-      <div>
-        {posts.map(post => <TestPost key={post._id} {...post} />)}
-      </div>
-    )
-  }
-  return (
-    <>
-      <div>132131</div>
-    </>
-  );
-}
-
 
 function ProfileNameSection({ user, isOwner, handleOptionsMenuClick }) {
   const classes = useProfilePageStyles();
@@ -311,52 +267,6 @@ function OptionsItem({ text, onClick }) {
   );
 }
 
-// ---------------------------------------------
-
-
-// function ProfileTabs({ isOwner, user, _id }) {
-//   const classes = useProfileTabsStyles();
-//   const [value, setValue] = useState(0);
-
-//   return (
-//     <>
-//       <section className={classes.section}>
-//         <Hidden xsDown>
-//           <Divider />
-//         </Hidden>
-//         <Hidden xsDown>
-//           <Tabs
-//             value={value}
-//             onChange={(_, value) => setValue(value)}
-//             centered
-//             classes={{
-//               indicator: classes.tabsIndicator,
-//             }}
-//           >
-//           </Tabs>
-//         </Hidden>
-//         <Hidden smUp>{user.posts.length === 0 && <Divider />}</Hidden>
-//         {value === 0 && <ProfilePosts user={user} isOwner={isOwner} />}
-//         {value === 1 && <SavedPosts isOwner={isOwner} />}
-//       </section>
-//     </>
-//   );
-// }
-
-// const ProfilePosts({ status, posts }) {
-//   const classes = useProfileTabsStyles();
-//   console.log(status)
-//   return (
-//     <article className={classes.article}>
-//       <div className={classes.postContainer}>
-//         {posts.map((post) => (
-//           <GridPost key={post.id} post={post} />
-//         ))}
-//       </div>
-//     </article>
-//   );
-// }
-
 const ProfilePosts = ({ status, posts }) => {
   const classes = useProfileTabsStyles();
 
@@ -373,7 +283,8 @@ const ProfilePosts = ({ status, posts }) => {
     )
   }
   if (status === 'RESOLVED') {
-    console.log(posts)
+    console.log(posts);
+    console.log(posts[0].owner.avatar.url);
     return (
       <article className={classes.article}>
         <div className={classes.postContainer}>
@@ -390,25 +301,6 @@ const ProfilePosts = ({ status, posts }) => {
     </>
   );
 }
-
-// function SavedPosts({ isOwner }) {
-//   const classes = useProfileTabsStyles();
-
-//   return (
-//     <section className={classes.savedPostsSection}>
-//       <div className={classes.noContent}>
-//         <div className={classes.savePhotoIcon} />
-//         <Typography variant="h4">Save</Typography>
-//         <Typography align="center">
-//           Save photos and videos that you want to see again. No one is notified,
-//           and only you can see what you've saved.
-//         </Typography>
-//       </div>
-//     </section>
-//   );
-// }
-
-// ---------------------------------------------
 
 export const CProfilePosts = connect(null, { getData: actionGetOwnerPosts })(PageProfile);
 const CProfilePostsTest = connect((state) => ({ status: state.promise?.postsByOwnerId?.status, posts: state.promise?.postsByOwnerId?.payload }))(ProfilePosts);

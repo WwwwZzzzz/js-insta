@@ -1,18 +1,16 @@
 import React from "react";
 import { useExploreGridStyles } from "../styles";
-import { getDefaultPost } from "../data";
 import { LoadingLargeIcon } from "../icons";
 import { Typography } from "@material-ui/core";
 import { useGridPostStyles } from "../styles";
 import { useHistory } from "react-router-dom";
 import Layout from "../components/shared/Layout";
 import ExploreSuggestions from "../components/ExploreSuggestionsComponent";
-import { Randompic } from '../styles';
 
 const Image = ({ _id, url }) => {
     const exploreImageStyleDiv = {
         maxWidth: "300px",
-        maxHeight: "200px",
+        maxHeight: "600px",
         objectFit: "cover",
         height: "100%",
         width: "100%",

@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 function GridPost({ _id, images }) {
   const history = useHistory();
   const classes = useGridPostStyles();
-  // const { media, likes, comments, id } = post;
   if (images === null) {
     images = [{}];
   }

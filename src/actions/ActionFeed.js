@@ -3,11 +3,8 @@ import { gqlQuery } from "../actions/ActionGQL";
 import { connect } from "react-redux";
 import { actionPromise, store } from "../reducers/allReducers";
 import { Feed } from "../components/FeedComponent";
-import { Redirect } from "react-router-dom";
-import { browserHistory } from 'react-router'
 import history from "../history";
 
-//60cdbf6734d8b37f3cf7523e
 const actionGQLFollowingById = (_id) =>
   actionPromise(
     'followingById',
@@ -27,7 +24,7 @@ const actionGQLFollowingById = (_id) =>
       { query: JSON.stringify([{ _id }]) },
     ),
   );
-//___owner 5d6fccfc5fce6722147978f2
+
 const actionGQLPostsByFollowingId = (following) =>
   actionPromise(
     'postsByFollowingId',
@@ -84,40 +81,3 @@ const actionGetPosts = () => async (dispatch, getState) => {
 
 
 export const CFeed = connect((state) => ({ status: state.promise?.postsByFollowingId?.status, posts: state.promise?.postsByFollowingId?.payload }))(Feed)
-
-export const actionPromiseFeed = () =>
-  actionPromise(
-    "feed",
-    gqlQuery(
-      `query {
-        PostFind(query:"[{}]") {
-          title,
-          text,
-          _id,
-          createdAt,
-          likes {
-           owner {
-              _id,
-              login,
-              avatar {
-                  url
-              }
-            }
-          }
-          images {
-            text,
-            url
-          }
-          owner {
-            _id,
-            login,
-            avatar {
-                url
-            }
-          }
-        }
-      }`
-    )
-  );
-
-

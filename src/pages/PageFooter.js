@@ -22,15 +22,13 @@ function Copyright() {
 
 function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
-  }
-  
+}
 
 const flexContainer = {
     display: 'flex',
     flexDirection: 'row',
     padding: 0,
-  };
- 
+};
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 'auto',
         backgroundColor:
             theme.palette.type === 'light' ? theme.palette.white : theme.palette.white,
-    }, 
+    },
 }));
 
 export const PageFooter = () => {
@@ -57,34 +55,22 @@ export const PageFooter = () => {
                     <Typography variant="caption" display="block">
                         <List style={flexContainer}>
                             <ListItemLink>
-                                <ListItemText
-                                    secondary="About"
-                                />
+                                <ListItemText secondary="About" />
                             </ListItemLink>
                             <ListItemLink>
-                                <ListItemText
-                                    secondary="Blog"
-                                />
+                                <ListItemText secondary="Blog" />
                             </ListItemLink>
                             <ListItemLink>
-                                <ListItemText
-                                    secondary="Help"
-                                />
+                                <ListItemText secondary="Help" />
                             </ListItemLink>
                             <ListItemLink>
-                                <ListItemText
-                                    secondary="Privacy"
-                                />
+                                <ListItemText secondary="Privacy" />
                             </ListItemLink>
                             <ListItemLink>
-                                <ListItemText
-                                    secondary="Terms"
-                                />
+                                <ListItemText secondary="Terms" />
                             </ListItemLink>
                             <ListItemLink>
-                                <ListItemText
-                                    secondary="Hashtags"
-                                />
+                                <ListItemText secondary="Hashtags" />
                             </ListItemLink>
                         </List>
                     </Typography>

@@ -68,7 +68,6 @@ function EditProfilePage({ history }) {
   return (
     <Layout title="Edit profile">
       <section className={classes.section}>
-        {/* MaterialUI */}
         <IconButton
           edge="start"
           onClick={handleToggleDrawer}

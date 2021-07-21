@@ -90,7 +90,6 @@ const Post = ({ title, text, _id, createdAt, likes, images, owner, comments }) =
         <article className={classes.article} onClick={handleShow}>
           <div className={classes.postHeader}>
             <UserCardFeed user={owner} />
-            <p>{_id}</p>
             <MoreIcon onClick={handleToggleOptions} className={classes.MoreIcon} />
           </div>
           <div>

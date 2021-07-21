@@ -45,8 +45,6 @@ const actionPending = (name) => ({ type: "PROMISE", name, status: "PENDING" });
 const actionResolved = (name, payload) => ({ type: "PROMISE", name, status: "RESOLVED", payload });
 const actionRejected = (name, error) => ({ type: "PROMISE", name, status: "REJECTED", error });
 
-// const delay = (ms) => new Promise((ok) => setTimeout(() => ok(ms), ms));
-
 export const actionPromise = (name, promise) => async (dispatch) => {
     dispatch(actionPending(name));
     try {
@@ -65,5 +63,4 @@ export const store = createStore(
 store.subscribe(() => console.log(store.getState()));
 console.log(store.getState());
 
-// store.dispatch(actionPromiseFeed());
 

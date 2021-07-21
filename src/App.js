@@ -1,18 +1,16 @@
 import React from "react";
-import { Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./reducers/allReducers";
 import { PageFooter } from "./pages/PageFooter";
 import { PageLogin } from "./pages/PageLogin";
 import { PageRegistration } from "./pages/PageRegistration";
-import {Drop} from "./components/DropComponent";
+// import {Drop} from "./components/DropComponent";
 import history from "./history";
 import {LayoutLogin} from "./layouts/LayoutLogin";
 import {PageNotFound} from "./pages/PageNotFound";
 import Post from './components/PostComponent';
-import FeedPage from "./pages/feed";
 import { PageMyProfile } from "./pages/PageMyProfile";
-// import { PageProfile } from "./pages/PageProfile";
 import { PageFeed } from "./pages/PageFeed";
 import { CPost } from "./pages/PagePost";
 import { CAllPost } from "./actions/ActionExplore";
@@ -28,13 +26,10 @@ const App = () => (
         <RouteWrapper path="/registration" component={PageRegistration} layout={LayoutLogin} />
         <Route exact path="/feed" component={PageFeed} />
         <Route path='/post:id' component={Post} />
-        <Route path="/feedtest" component={FeedPage} />
         <Route path="/explore" component={CAllPost} />
         <Route path="/test/:_id" component={CPost} />
         {/* <Route path='/posttest' component={PostPage} /> */}
-        <Route path="/me" component={PageMyProfile} />
-        {/* <Route path="/profile" component={PageProfile} /> */}
-        {/* <Route path="/profile/:id" component={PageProfile} /> */}
+        {/* <Route path="/me" component={PageMyProfile} /> */}
         <Route path="/profile/:_id" component={CProfilePosts} />
         <Route path="/accounts/edit" component={EditProfilePage} />
         <Route path='*' exact={true} component={PageNotFound} />
